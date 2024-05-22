@@ -7,8 +7,7 @@ public class Test {
         // 读取地铁网数据
         Map<String, Map<String, Integer>> subwayMap = readSubwayData("subway.txt");
        
-        
-        // 测试功能2：输入某一站点，输出线路距离小于n的所有站点集合
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("请输入站点名称：");
         String inputStation = scanner.nextLine();
@@ -16,15 +15,10 @@ public class Test {
         int distanceN = scanner.nextInt();
         scanner.close();
         
-        // 调用函数实现测试功能
+ 
         testFindNearbyStations(subwayMap, inputStation, distanceN);
     }
-    
-    /**
-     * 读取地铁网数据
-     * @param filePath 文件路径
-     * @return 地铁网数据
-     */
+
     private static Map<String, Map<String, Integer>> readSubwayData(String filePath) {
         Map<String, Map<String, Integer>> subwayMap = new HashMap<>();
         try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\28560\\Desktop\\subway.txt"))) {
@@ -50,13 +44,7 @@ public class Test {
     }
     
    
-    
-    /**
-     * 测试功能：输入某一站点，输出线路距离小于n的所有站点集合
-     * @param subwayMap 地铁网数据
-     * @param inputStation 输入站点名称
-     * @param distanceN 距离n
-     */
+
     private static void testFindNearbyStations(Map<String, Map<String, Integer>> subwayMap, String inputStation, int distanceN) {
         if (subwayMap == null || subwayMap.isEmpty()) {
             System.out.println("地铁网数据为空！");

@@ -1,5 +1,4 @@
 package test;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -40,7 +39,7 @@ public class SubwayMap {
                 for (String line : stationLines.get(station)) {
                     sb.append(line).append(" 号线、");
                 }
-                sb.setLength(sb.length() - 1);
+                sb.setLength(sb.length() - 1); // Remove the last comma
                 sb.append(">>");
                 transferStations.add(sb.toString());
             }
@@ -90,6 +89,7 @@ public class SubwayMap {
             System.out.println(station);
         }
 
+        // Example usage
 
     }
 }
