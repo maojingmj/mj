@@ -3,7 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
+import java.util.Scanner;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -191,18 +191,6 @@ class SubwaySystem {
         }
     }
 
-    public double calculateFare(List<Station> path) {
-        double totalDistance = 0;
-        for (int i = 0; i < path.size() - 1; i++) {
-            for (LineSegment segment : lineSegments) {
-                if (segment.from.equals(path.get(i)) && segment.to.equals(path.get(i + 1))) {
-                    totalDistance += segment.distance;
-                    break;
-                }
-            }
-        }
-        return totalDistance;
-    }
 
     public double calculateFareWithDiscount(List<Station> path, String ticketType) {
         double baseFare = calculateFare(path);
