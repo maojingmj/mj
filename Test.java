@@ -185,5 +185,38 @@ class SubwaySystem {
         return path;
     }
 
+
+    public void printPath(List<Station> path) {
+        for (int i = 0; i < path.size() - 1; i++) {
+            System.out.println(path.get(i).name + " -> " + path.get(i + 1).name);
+        }		        }
+
+    }
+        System.out.println("距离" + inputStation + "站距离小于" + distanceN + "的站点集合：");		
+        for (Map.Entry<String, Integer> entry : nearbyStations.entrySet()) {		    public double calculateFare(List<Station> path) {
+            if (entry.getValue() < distanceN) {		        double totalDistance = 0;
+                System.out.println("<" + entry.getKey() + "，" + entry.getValue() + ">");		        for (int i = 0; i < path.size() - 1; i++) {
+            for (LineSegment segment : lineSegments) {
+                if (segment.from.equals(path.get(i)) && segment.to.equals(path.get(i + 1))) {
+                    totalDistance += segment.distance;
+                    break;
+                }		                }
+            }
+        }
+        return totalDistance;
+    }
+
+    public double calculateFareWithDiscount(List<Station> path, String ticketType) {
+        double baseFare = calculateFare(path);
+        switch (ticketType) {
+            case "武汉通":
+                return baseFare * 0.9;
+            case "日票":
+                return 0;
+            default:
+                return baseFare;
+        }
+    }
+}
  
 
